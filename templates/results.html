@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+
+        #keywords {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 20px;
+            width: 80%;
+            max-width: 600px;
+            word-wrap: break-word;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="keywords">
+        <h2>Related Keywords</h2>
+        {% for keyword in keywords %}
+            <span>{{ keyword }}</span>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+    </div>
+    <button onclick="copyToClipboard()">Copy to Clipboard</button>
+
+    <script>
+        function copyToClipboard() {
+            const text = document.getElementById('keywords').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Keywords copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>
