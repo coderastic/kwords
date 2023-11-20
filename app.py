@@ -12,7 +12,7 @@ def search():
     keyword = request.form['keyword']
     timeframe = request.form['timeframe']
     geo = request.form['geo']
-    api_key = 'YOUR_API_KEY'  # Replace with your actual API key
+    api_key = 'a66213ebd5f190aa0799cade86ee877fc4bfb8b28f20010b369b20c79fdc5ca8'  # Replace with your actual API key
 
     keywords = get_trends(keyword, timeframe, geo, api_key)
     return render_template('results.html', keywords=keywords)
